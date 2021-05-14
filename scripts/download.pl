@@ -65,8 +65,8 @@ sub hash_cmd() {
 	my $len = length($file_hash);
 	my $cmd;
 
-	$len == 64 and return "mkhash sha256";
-	$len == 32 and return "mkhash md5";
+	$len == 64 and return "$ENV{'MKHASH'} sha256";
+	$len == 32 and return "$ENV{'MKHASH'} md5";
 	return undef;
 }
 
@@ -220,6 +220,7 @@ foreach my $mirror (@ARGV) {
 		# replace the 2nd '/' with '@' for jsDelivr mirror
 		push @mirrors, "https://cdn.jsdelivr.net/gh/". $dir =~ s{\/}{++$i == 2 ? '@' : $&}ger;
 		push @mirrors, "https://raw.sevencdn.com/$dir";
+		push @mirrors, "https://raw.fastgit.org/$dir";
 		# give github a few more tries (different mirrors)
 		for (1 .. 5) {
 			push @mirrors, "https://raw.githubusercontent.com/$dir";
@@ -279,6 +280,9 @@ foreach my $mirror (@ARGV) {
 	}
 }
 
+push @mirrors, "https://mirror01.download.immortalwrt.eu.org/openwrt-18.06";
+push @mirrors, "https://mirror02.download.immortalwrt.eu.org/openwrt-18.06";
+push @mirrors, "https://openwrt.cc/dl/immortalwrt/openwrt-18.06";
 push @mirrors, 'https://sources.cdn.openwrt.org';
 push @mirrors, 'https://sources.openwrt.org';
 push @mirrors, 'https://mirror2.openwrt.org/sources';
