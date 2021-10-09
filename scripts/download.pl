@@ -205,6 +205,7 @@ foreach my $mirror (@ARGV) {
 		push @mirrors, "https://mirror.netcologne.de/debian/$1";
 	} elsif ($mirror =~ /^\@APACHE\/(.+)$/) {
 		push @mirrors, "https://mirrors.tencent.com/apache/$1";
+		push @mirrors, "https://mirrors.aliyun.com/apache/$1";
 		# push @mirrors, "https://mirrors.tuna.tsinghua.edu.cn/apache/$1";
 		# push @mirrors, "https://mirrors.ustc.edu.cn/apache/$1";
 		push @mirrors, "https://mirror.netcologne.de/apache.org/$1";
@@ -229,6 +230,7 @@ foreach my $mirror (@ARGV) {
 		}
 	} elsif ($mirror =~ /^\@GNU\/(.+)$/) {
 		push @mirrors, "https://mirrors.tencent.com/gnu/$1";
+		push @mirrors, "https://mirrors.aliyun.com/gnu/$1";
 		# push @mirrors, "https://mirrors.tuna.tsinghua.edu.cn/gnu/$1";
 		# push @mirrors, "https://mirrors.cqu.edu.cn/gnu/$1";
 		# push @mirrors, "https://mirrors.ustc.edu.cn/gnu/$1";
@@ -284,7 +286,7 @@ foreach my $mirror (@ARGV) {
 
 push @mirrors, "https://mirror01.download.immortalwrt.eu.org";
 push @mirrors, "https://mirror02.download.immortalwrt.eu.org";
-push @mirrors, "https://openwrt.cc/dl/immortalwrt/openwrt-18.06";
+push @mirrors, "https://openwrt.cc/dl/immortalwrt/immortalwrt";
 push @mirrors, 'https://sources.cdn.openwrt.org';
 push @mirrors, 'https://sources.openwrt.org';
 push @mirrors, 'https://mirror2.openwrt.org/sources';
